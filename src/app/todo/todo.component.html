@@ -2,7 +2,7 @@
   List of todo's
 </p>
 
-<todo-item *ngFor="let todo of todos" [todo]="todo"></todo-item>
+<todo-item *ngFor="let todo of todos; let odd = odd;" [todo]="todo" [class.odd]="odd"></todo-item>
 
 <add-todo></add-todo>
 
