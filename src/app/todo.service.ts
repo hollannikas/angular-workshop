@@ -12,12 +12,12 @@ export class TodoService {
   private todos: Array<Todo>;
 
   constructor() {
-    this.todos = new Array<Todo>();
+    this.todos = [];
     // This simulates getting data from a restful service
     TODOS.forEach((todo: Todo) => this.todos.push(todo));
   }
 
-  getTodos() {
+  getTodos(): Array<Todo> {
     return this.todos;
   }
 
@@ -25,7 +25,7 @@ export class TodoService {
     this.todos.push(todo);
   }
 
-  removeTodo(todo) {
+  removeTodo(todo: Todo) {
     const index = this.todos.findIndex(item => item === todo);
     this.todos.splice(index, 1);
   }
