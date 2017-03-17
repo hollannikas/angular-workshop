@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from "../todo.service";
+import {Todo} from "../shared/todo.model";
 
 @Component({
   selector: 'add-todo',
@@ -14,7 +15,7 @@ export class AddTodoComponent implements OnInit {
   }
 
   addTodo(description) {
-    this.todoService.addTodo({ description: description});
+    this.todoService.addTodo(new Todo(description, false));
   }
 
 }
