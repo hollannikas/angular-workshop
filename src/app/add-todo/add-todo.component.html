@@ -1,6 +1,6 @@
 
 
-New todo: <input #newTodo>
+New todo: <input [(ngModel)]="description">
 
-<button (click)="addTodo(newTodo.value); newTodo.value=''">Add</button>
+<button (click)="addTodo()">Add</button>
 

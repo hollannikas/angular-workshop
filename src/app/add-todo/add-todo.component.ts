@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {TodoService} from "../shared/todo.service";
 import {Todo} from "../shared/todo.model";
 
@@ -8,14 +8,16 @@ import {Todo} from "../shared/todo.model";
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
+  @Input() description = '';
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
-  addTodo(description) {
-    this.todoService.addTodo(new Todo(description, false));
+  addTodo() {
+    this.todoService.addTodo(new Todo(this.description, false));
+    this.description = '';
   }
 
 }
