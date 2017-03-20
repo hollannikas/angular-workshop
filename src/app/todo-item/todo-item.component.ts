@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {TodoService} from "../shared/todo.service";
-import {Todo} from "../shared/todo.model";
 
 @Component({
   selector: 'app-todo-item',
@@ -10,7 +9,7 @@ import {Todo} from "../shared/todo.model";
 export class TodoItemComponent implements OnInit {
 
   @Input()
-  todo: Todo;
+  todo;
 
   constructor(private todoService: TodoService) { }
 

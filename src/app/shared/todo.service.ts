@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Todo} from "./todo.model";
 
-const TODOS: Array<Todo> = [
+const TODOS = [
   { description: 'do laundry', done: false },
   { description: 'learn angular', done: false }
 ];
@@ -9,25 +8,26 @@ const TODOS: Array<Todo> = [
 @Injectable()
 export class TodoService {
 
-  private todos: Array<Todo>;
+  todos = [];
 
   constructor() {
-    this.todos = [];
     // This simulates getting data from a restful service
-    TODOS.forEach((todo: Todo) => this.todos.push(todo));
+    TODOS.forEach((todo) => this.todos.push(todo));
   }
 
-  getTodos(): Array<Todo> {
+  getTodos(){
     return this.todos;
   }
 
-  addTodo(todo: Todo) {
+  addTodo(todo) {
     this.todos.push(todo);
   }
 
-  removeTodo(todo: Todo) {
+  removeTodo(todo) {
     const index = this.todos.findIndex(item => item === todo);
-    this.todos.splice(index, 1);
+    if(index != -1) {
+      this.todos.splice(index, 1);
+    }
   }
 
 }

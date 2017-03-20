@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {TodoService} from "../shared/todo.service";
-import {Todo} from "../shared/todo.model";
 
 @Component({
   selector: 'app-add-todo',
@@ -8,7 +7,7 @@ import {Todo} from "../shared/todo.model";
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-  @Input() description = '';
+  @Input() description;
 
   constructor(private todoService: TodoService) { }
 
@@ -16,7 +15,8 @@ export class AddTodoComponent implements OnInit {
   }
 
   addTodo() {
-    this.todoService.addTodo(new Todo(this.description, false));
+    const todo = { description: this.description, done: false };
+    this.todoService.addTodo(todo);
     this.description = '';
   }
 
