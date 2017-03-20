@@ -6,10 +6,12 @@ import { TodoItemComponent } from "./todo-item/todo-item.component";
 import { AddTodoComponent } from "./add-todo/add-todo.component";
 import { TodoService } from "./shared/todo.service";
 import { todoServiceStub } from "./shared/todo.service.mock";
+import { FormsModule } from "@angular/forms";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [
         AppComponent,
         TodoComponent,
