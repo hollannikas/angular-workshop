@@ -27,7 +27,7 @@ before_script:
 
 script:
   - ng test
-  - ng e2e
+  #- ng e2e
 
 notifications:
   email:
