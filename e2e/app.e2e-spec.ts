@@ -7,8 +7,8 @@ describe('angular-workshop App', () => {
     page = new AngularWorkshopPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display message saying Todo app', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Todo app');
   });
 });
