@@ -1,9 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {TodoService} from "../todo.service";
+import {TodoService} from "../shared/todo.service";
 import {Todo} from "../shared/todo.model";
 
 @Component({
-  selector: 'todo-item',
+  selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })

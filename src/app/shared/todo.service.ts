@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Todo} from "./shared/todo.model";
+import {Todo} from "./todo.model";
 
 const TODOS: Array<Todo> = [
   { description: 'do laundry', done: false },
