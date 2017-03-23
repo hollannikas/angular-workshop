@@ -10,6 +10,7 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoService } from "./shared/todo.service";
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { RouterModule } from "@angular/router";
+import { MyDateFormatPipe } from './my-date-format.pipe';
 
 const appRoutes = [
   { path: '', component: TodoComponent },
@@ -22,7 +23,8 @@ const appRoutes = [
     TodoItemComponent,
     TodoComponent,
     AddTodoComponent,
-    EditTodoComponent
+    EditTodoComponent,
+    MyDateFormatPipe
   ],
   imports: [
     BrowserModule,

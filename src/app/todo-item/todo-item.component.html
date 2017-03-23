@@ -1,5 +1,5 @@
 <div (mouseenter)="hover = true;" (mouseleave)="hover = false;" [class.hover]="hover">
-  {{todo.description}}
+  {{todo.dueTo | myDateFormat}} {{todo.description}}
   <button (click)="remove()">Remove</button>
   <button (click)="edit()">Edit</button>
 </div>
