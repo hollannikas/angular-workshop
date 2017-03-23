@@ -1,4 +1,54 @@
 <p>
   {{todo.description}} at index {{todo.index}}
 </p>
-<button routerLink="/">Back</button>
+<form #todoForm="ngForm">
+  Description:
+  <input
+    type="text"
+    name="description"
+    [(ngModel)]="todo.description"
+    required
+    #description="ngModel"/>
+  <div
+    *ngIf="description.invalid && description.touched"
+    class="error-msg">
+    Description can't be empty
+  </div>
+  <br/>
+
+  Due to:
+  <input
+    type="text"
+    name="dueTo"
+    [(ngModel)]="todo.dueTo"
+    pattern="^\d\d\d\d-\d\d-\d\d$"
+    required
+    #dueTo="ngModel"/>
+  <div
+    *ngIf="dueTo.invalid && dueTo.touched"
+    class="error-msg">
+    Due to date is invalid
+  </div>
+  <br/>
+
+  Assignee:
+  <input
+    type="text"
+    name="assignee"
+    [(ngModel)]="todo.assignee"
+    minlength="6"
+    #assignee="ngModel"
+    required/>
+  <div
+    *ngIf="assignee.invalid && assignee.touched"
+    class="error-msg">
+    Assignee needs to be at least 6 characters long
+  </div>
+  <br/>
+
+  <button
+    routerLink="/"
+    [disabled]="todoForm.invalid">
+    Back
+  </button>
+</form>
