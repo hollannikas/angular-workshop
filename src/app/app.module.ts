@@ -8,18 +8,27 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoComponent } from './todo/todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoService } from "./shared/todo.service";
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
+import { RouterModule } from "@angular/router";
+
+const appRoutes = [
+  { path: '', component: TodoComponent },
+  { path: 'todo/:index', component: EditTodoComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemComponent,
     TodoComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    EditTodoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
