@@ -5,6 +5,9 @@ import { TodoService } from "../shared/todo.service";
 import { TodoItemComponent } from "../todo-item/todo-item.component";
 import { AddTodoComponent } from "../add-todo/add-todo.component";
 import { FormsModule } from "@angular/forms";
+import {MyDateFormatPipe} from "../shared/my-date-format.pipe";
+import {RouterStub} from "../testing/router.mocks";
+import {Router} from "@angular/router";
 
 const todoServiceStub = {
   getTodos: () => [{description: "do stuff", done: false}]
@@ -20,9 +23,13 @@ describe('TodoComponent', () => {
       declarations: [
         TodoComponent,
         TodoItemComponent,
-        AddTodoComponent
+        AddTodoComponent,
+        MyDateFormatPipe
       ],
-      providers: [ { provide: TodoService, useValue: todoServiceStub } ]
+      providers: [
+        { provide: TodoService, useValue: todoServiceStub },
+        { provide: Router, useClass: RouterStub }
+      ]
     })
     .compileComponents();
   }));

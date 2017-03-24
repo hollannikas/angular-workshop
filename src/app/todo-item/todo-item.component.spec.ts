@@ -2,7 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoItemComponent } from './todo-item.component';
 import { TodoService } from "../shared/todo.service";
-import { todoServiceStub } from "../shared/todo.service.mock";
+import { todoServiceStub } from "../testing/todo.service.mock";
+import {MyDateFormatPipe} from "../shared/my-date-format.pipe";
+import {Router} from "@angular/router";
+import {RouterStub} from "../testing/router.mocks";
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -10,8 +13,14 @@ describe('TodoItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoItemComponent ],
-      providers: [ { provide: TodoService, useValue: todoServiceStub }]
+      declarations: [
+        TodoItemComponent,
+        MyDateFormatPipe
+      ],
+      providers: [
+        { provide: TodoService, useValue: todoServiceStub },
+        { provide: Router, useClass: RouterStub}
+      ]
     })
     .compileComponents();
   }));

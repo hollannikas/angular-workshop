@@ -5,20 +5,28 @@ import { TodoComponent } from "./todo/todo.component";
 import { TodoItemComponent } from "./todo-item/todo-item.component";
 import { AddTodoComponent } from "./add-todo/add-todo.component";
 import { TodoService } from "./shared/todo.service";
-import { todoServiceStub } from "./shared/todo.service.mock";
+import { todoServiceStub } from "./testing/todo.service.mock";
 import { FormsModule } from "@angular/forms";
+import {MyDateFormatPipe} from "./shared/my-date-format.pipe";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule ],
+      imports: [
+        FormsModule,
+        RouterTestingModule
+      ],
       declarations: [
         AppComponent,
         TodoComponent,
         TodoItemComponent,
-        AddTodoComponent
+        AddTodoComponent,
+        MyDateFormatPipe
       ],
-      providers: [ { provide: TodoService, useValue: todoServiceStub } ]
+      providers: [
+        { provide: TodoService, useValue: todoServiceStub }
+      ]
     }).compileComponents();
   }));
 

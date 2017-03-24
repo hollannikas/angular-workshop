@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddTodoComponent } from './add-todo.component';
 import { TodoService } from "../shared/todo.service";
-import { todoServiceStub } from "../shared/todo.service.mock";
+import { todoServiceStub } from "../testing/todo.service.mock";
 import { FormsModule } from "@angular/forms";
 
 describe('AddTodoComponent', () => {
