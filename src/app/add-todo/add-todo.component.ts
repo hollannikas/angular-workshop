@@ -7,7 +7,7 @@ import {TodoService} from "../shared/todo.service";
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent implements OnInit {
-  @Input() description;
+  @Input() name;
 
   constructor(private todoService: TodoService) { }
 
@@ -15,9 +15,9 @@ export class AddTodoComponent implements OnInit {
   }
 
   addTodo() {
-    const todo = { description: this.description, done: false };
+    const todo = { name: this.name, done: false };
     this.todoService.addTodo(todo);
-    this.description = '';
+    this.name = '';
   }
 
 }

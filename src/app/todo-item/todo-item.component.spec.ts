@@ -6,6 +6,7 @@ import { todoServiceStub } from "../testing/todo.service.mock";
 import {MyDateFormatPipe} from "../shared/my-date-format.pipe";
 import {Router} from "@angular/router";
 import {RouterStub} from "../testing/router.mocks";
+import {FormsModule} from "@angular/forms";
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
@@ -13,6 +14,7 @@ describe('TodoItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [
         TodoItemComponent,
         MyDateFormatPipe
@@ -28,7 +30,7 @@ describe('TodoItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodoItemComponent);
     component = fixture.componentInstance;
-    component.todo = { description: "do stuff", done: false};
+    component.todo = { name: "do stuff", done: false};
     fixture.detectChanges();
   });
 

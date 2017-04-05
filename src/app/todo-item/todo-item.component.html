@@ -1,5 +1,5 @@
 <div (mouseenter)="hover = true;" (mouseleave)="hover = false;" [class.hover]="hover">
-  {{todo.dueTo | myDateFormat}} {{todo.description}}
+  <input type="checkbox" [(ngModel)]="todo.done"> {{todo.dueTo | myDateFormat}} {{todo.name}}
   <button (click)="remove()">Remove</button>
   <button (click)="edit()">Edit</button>
 </div>

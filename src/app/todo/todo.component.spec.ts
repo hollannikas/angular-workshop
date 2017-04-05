@@ -10,7 +10,7 @@ import {RouterStub} from "../testing/router.mocks";
 import {Router} from "@angular/router";
 
 const todoServiceStub = {
-  getTodos: () => [{description: "do stuff", done: false}]
+  getTodos: () => [{name: "do stuff", done: false}]
 };
 
 describe('TodoComponent', () => {
