@@ -14,7 +14,7 @@ import { MyDateFormatPipe } from './shared/my-date-format.pipe';
 
 const appRoutes = [
   { path: '', component: TodoComponent },
-  { path: 'todo/:index', component: EditTodoComponent }
+  { path: 'todo/:id', component: EditTodoComponent }
 ];
 
 @NgModule({
@@ -30,7 +30,8 @@ const appRoutes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

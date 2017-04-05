@@ -26,7 +26,7 @@ describe('EditTodoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EditTodoComponent);
     component = fixture.componentInstance;
-    component.todo = { description: "do stuff", done: false};
+    component.todo = { name: "do stuff", done: false};
     fixture.detectChanges();
   });
 

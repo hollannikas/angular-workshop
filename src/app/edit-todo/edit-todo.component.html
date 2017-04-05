@@ -1,12 +1,12 @@
-<p>
-  {{todo.description}} at index {{todo.index}}
-</p>
+
+<input type="checkbox" [(ngModel)]="todo.done"> {{todo.name}}
+
 <form #todoForm="ngForm">
   Description:
   <input
     type="text"
     name="description"
-    [(ngModel)]="todo.description"
+    [(ngModel)]="todo.name"
     required
     #description="ngModel"/>
   <div
@@ -16,7 +16,7 @@
   </div>
   <br/>
 
-  Due to:
+  Due by:
   <input
     type="text"
     name="dueTo"

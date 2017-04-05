@@ -25,7 +25,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   edit() {
-    this.router.navigate(['/todo', this.todo.index]);
+    this.router.navigate(['/todo', this.todo.id]);
   }
 
 }
