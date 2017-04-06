@@ -8,13 +8,11 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoComponent } from './todo/todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoService } from './shared/todo.service';
-import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { RouterModule } from '@angular/router';
 import { MyDateFormatPipe } from './shared/my-date-format.pipe';
 
 const appRoutes = [
-  { path: '', component: TodoComponent },
-  { path: 'todo/:id', component: EditTodoComponent }
+  { path: '', component: TodoComponent }
 ];
 
 @NgModule({
@@ -23,15 +21,13 @@ const appRoutes = [
     TodoItemComponent,
     TodoComponent,
     AddTodoComponent,
-    EditTodoComponent,
     MyDateFormatPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
-
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

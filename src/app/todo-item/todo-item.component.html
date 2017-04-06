@@ -1,5 +1,4 @@
 <div (mouseenter)="hover = true;" (mouseleave)="hover = false;" [class.hover]="hover">
   <input type="checkbox" [(ngModel)]="todo.done"> {{todo.name}}
   <button (click)="remove()">Remove</button>
-  <button (click)="edit()">Edit</button>
 </div>

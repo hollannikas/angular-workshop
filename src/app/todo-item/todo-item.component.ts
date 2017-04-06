@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TodoService } from '../shared/todo.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-item',
@@ -13,20 +12,13 @@ export class TodoItemComponent implements OnInit {
 
   hover;
 
-  constructor(
-    private todoService: TodoService,
-    private router: Router
-  ) { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
   remove() {
     this.todoService.removeTodo(this.todo).subscribe();
-  }
-
-  edit() {
-    this.router.navigate(['/todo', this.todo.id]);
   }
 
 }
