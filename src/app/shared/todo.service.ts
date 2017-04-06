@@ -14,13 +14,13 @@ export class TodoService {
     this.todos = TODOS;
   }
 
-  getTodos(){
+  getTodos() {
     return this.todos;
   }
 
   addTodo(todo) {
     // get max ID, add one
-    let maxId = this.todos
+    const maxId = this.todos
       .reduce((prev, curr) => Math.max(prev.id, curr.id));
     todo.id = isNaN(maxId) ? 1 : maxId + 1;
     this.todos.push(todo);
@@ -29,7 +29,7 @@ export class TodoService {
 
   removeTodo(todo) {
     const index = this.todos.findIndex(item => item.id === todo.id);
-    if(index != -1) {
+    if (index !== -1) {
       this.todos.splice(index, 1);
     }
   }

@@ -1,6 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {TodoService} from "../shared/todo.service";
-import {Router} from "@angular/router";
+import { Component, Input, OnInit } from '@angular/core';
+import { TodoService } from '../shared/todo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-item',
@@ -11,6 +11,8 @@ export class TodoItemComponent implements OnInit {
 
   @Input()
   todo;
+
+  hover;
 
   constructor(
     private todoService: TodoService,

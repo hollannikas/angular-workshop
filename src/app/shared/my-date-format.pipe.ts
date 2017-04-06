@@ -8,7 +8,7 @@ export class MyDateFormatPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
 
-    if(typeof value == 'string') {
+    if (typeof value === 'string') {
       return new DatePipe('fi').transform(value, 'd.M.yyyy');
     }
 

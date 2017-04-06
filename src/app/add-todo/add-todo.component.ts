@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {TodoService} from "../shared/todo.service";
+import {TodoService} from '../shared/todo.service';
 
 @Component({
   selector: 'app-add-todo',

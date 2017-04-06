@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoComponent } from './todo/todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
-import { TodoService } from "./shared/todo.service";
+import { TodoService } from './shared/todo.service';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { MyDateFormatPipe } from './shared/my-date-format.pipe';
 
 const appRoutes = [
