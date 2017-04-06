@@ -17,15 +17,6 @@ export class EditTodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(params => {
-        const id = +params['id'];
-        const todos = this.todoService.getTodos();
-        const index = todos.findIndex(item => item.id === id);
-        if (index !== -1) {
-          this.todo = todos[index];
-        }
-      });
   }
 
 }

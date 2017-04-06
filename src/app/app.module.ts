@@ -15,6 +15,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { reducer } from './reducers/todo.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from './shared/todo.effects';
 
 const appRoutes = [
   { path: '', component: TodoComponent },
@@ -43,7 +45,8 @@ export function instrumentOptions() {
     RouterModule.forRoot(appRoutes),
     StoreModule.provideStore( { todos: reducer } ),
     StoreDevtoolsModule.instrumentStore(instrumentOptions),
-    StoreLogMonitorModule
+    StoreLogMonitorModule,
+    EffectsModule.run(TodoEffects)
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
