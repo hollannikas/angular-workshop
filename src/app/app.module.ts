@@ -11,11 +11,21 @@ import { TodoService } from './shared/todo.service';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { RouterModule } from '@angular/router';
 import { MyDateFormatPipe } from './shared/my-date-format.pipe';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { reducer } from './reducers/todo.reducer';
 
 const appRoutes = [
   { path: '', component: TodoComponent },
   { path: 'todo/:id', component: EditTodoComponent }
 ];
+
+export function instrumentOptions() {
+  return {
+    monitor: useLogMonitor( { visible: true, position: 'right' })
+  };
+}
 
 @NgModule({
   declarations: [
@@ -31,7 +41,9 @@ const appRoutes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-
+    StoreModule.provideStore( { todos: reducer } ),
+    StoreDevtoolsModule.instrumentStore(instrumentOptions),
+    StoreLogMonitorModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

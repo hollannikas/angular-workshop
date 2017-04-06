@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {TodoService} from '../shared/todo.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-add-todo',
@@ -9,16 +9,15 @@ import {TodoService} from '../shared/todo.service';
 export class AddTodoComponent implements OnInit {
   @Input() name;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
   }
 
   addTodo() {
     const todo = { name: this.name, done: false };
-    this.todoService.addTodo(todo).subscribe(() => {
-      this.name = '';
-    });
+    this.store.dispatch({ type: 'ADD', payload: todo});
+    this.name = '';
   }
 
 }
