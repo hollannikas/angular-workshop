@@ -16,21 +16,6 @@
   </div>
   <br/>
 
-  Due by:
-  <input
-    type="text"
-    name="dueTo"
-    [(ngModel)]="todo.dueTo"
-    pattern="^\d\d\d\d-\d\d-\d\d$"
-    required
-    #dueTo="ngModel"/>
-  <div
-    *ngIf="dueTo.invalid && dueTo.touched"
-    class="error-msg">
-    Due to date is invalid
-  </div>
-  <br/>
-
   Assignee:
   <input
     type="text"
