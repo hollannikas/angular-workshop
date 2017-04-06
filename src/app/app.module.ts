@@ -12,6 +12,8 @@ import { RouterModule } from '@angular/router';
 import { MyDateFormatPipe } from './shared/my-date-format.pipe';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/todo.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodoEffects } from './effects/todo.effects';
 
 const appRoutes = [
   { path: '', component: TodoComponent }
@@ -30,7 +32,8 @@ const appRoutes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.provideStore( {todos: reducer})
+    StoreModule.provideStore( {todos: reducer}),
+    EffectsModule.run(TodoEffects)
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

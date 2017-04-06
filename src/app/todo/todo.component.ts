@@ -17,8 +17,7 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const newTodos = this.todoService.getTodos();
-    this.store.dispatch( {type: 'LOADED', payload: newTodos});
+    this.store.dispatch( {type: 'LOAD'});
     this.todos = this.store.select('todos');
   }
 

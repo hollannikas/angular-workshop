@@ -6,30 +6,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TodoService {
   listId = 100;
-  todos = [];
 
   constructor(private http: Http) {
-    this.updateTodos();
   }
 
   getTodos() {
-    return this.todos;
-  }
-
-  updateTodos() {
-    this.http.get(`http://gofore-todo.herokuapp.com/todo-lists/${this.listId}`)
+    return this.http.get(`http://gofore-todo.herokuapp.com/todo-lists/${this.listId}`)
       .map(response => response.json())
-      .map(data => data.todos)
-      .subscribe(todos => {
-        this.todos.splice(0, this.todos.length, ...todos);
-      });
+      .map(data => data.todos);
   }
 
   addTodo(todo) {
-    return this.http.post(`http://gofore-todo.herokuapp.com/todo-lists/${this.listId}`, todo).do(() => this.updateTodos());
+    return this.http.post(`http://gofore-todo.herokuapp.com/todo-lists/${this.listId}`, todo);
   }
 
   removeTodo(todo) {
-    return this.http.delete(`http://gofore-todo.herokuapp.com/todos/${todo.id}`).do(() => this.updateTodos());
+    return this.http.delete(`http://gofore-todo.herokuapp.com/todos/${todo.id}`);
   }
 }

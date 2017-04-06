@@ -8,6 +8,9 @@ export function reducer(state = [], action: Action) {
       return [...state, action.payload];
     case 'REMOVE':
       return state.filter(todo => todo.id !== action.payload.id);
+    case 'ACTION_ERROR':
+      console.log('error');
+      return state;
     default:
       return state;
   }
