@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
-
   @Input()
   todo;
 
@@ -23,7 +22,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   remove() {
-    this.todoService.removeTodo(this.todo);
+    this.todoService.removeTodo(this.todo).subscribe();
   }
 
   edit() {

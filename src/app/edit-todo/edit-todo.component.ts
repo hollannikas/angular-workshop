@@ -17,7 +17,6 @@ export class EditTodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.route.params
       .subscribe(params => {
         const id = +params['id'];
