@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TodoService } from '../shared/todo.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-todo-item',
@@ -12,13 +12,13 @@ export class TodoItemComponent implements OnInit {
 
   hover;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private store: Store<any>) { }
 
   ngOnInit() {
   }
 
   remove() {
-    this.todoService.removeTodo(this.todo).subscribe();
+    this.store.dispatch( {type: 'REMOVE', payload: this.todo});
   }
 
 }

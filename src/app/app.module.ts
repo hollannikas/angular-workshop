@@ -10,6 +10,8 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { TodoService } from './shared/todo.service';
 import { RouterModule } from '@angular/router';
 import { MyDateFormatPipe } from './shared/my-date-format.pipe';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/todo.reducer';
 
 const appRoutes = [
   { path: '', component: TodoComponent }
@@ -27,7 +29,8 @@ const appRoutes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    StoreModule.provideStore( {todos: reducer})
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
