@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TodoService {
+  listId = 1;
   todos = [];
 
   constructor(private http: Http) {
@@ -16,7 +17,7 @@ export class TodoService {
   }
 
   updateTodos() {
-    this.http.get('http://gofore-todo.herokuapp.com/todo-lists/1')
+    this.http.get(`http://gofore-todo.herokuapp.com/todo-lists/${this.listId}`)
       .map(response => response.json())
       .map(data => data.todos)
       .subscribe(todos => {
@@ -25,7 +26,7 @@ export class TodoService {
   }
 
   addTodo(todo) {
-    return this.http.post('http://gofore-todo.herokuapp.com/todo-lists/1', todo).do(() => this.updateTodos());
+    return this.http.post(`http://gofore-todo.herokuapp.com/todo-lists/${this.listId}`, todo).do(() => this.updateTodos());
   }
 
   removeTodo(todo) {
