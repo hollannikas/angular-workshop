@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MyDateFormatPipe } from '../shared/my-date-format.pipe';
 import { RouterStub } from '../testing/router.mocks';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 const todoServiceStub = {
   getTodos: () => [{name: 'do stuff', done: false}]
@@ -27,6 +28,7 @@ describe('TodoComponent', () => {
         MyDateFormatPipe
       ],
       providers: [
+        { provide: Store, useValue: { dispatch: () => {}, select: () => {}} },
         { provide: TodoService, useValue: todoServiceStub },
         { provide: Router, useClass: RouterStub }
       ]

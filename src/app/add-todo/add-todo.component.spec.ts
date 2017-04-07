@@ -1,9 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 
 import { AddTodoComponent } from './add-todo.component';
 import { TodoService } from '../shared/todo.service';
 import { todoServiceStub } from '../testing/todo.service.mock';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
 
 describe('AddTodoComponent', () => {
   let component: AddTodoComponent;
@@ -13,7 +14,10 @@ describe('AddTodoComponent', () => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ],
       declarations: [ AddTodoComponent ],
-      providers: [ { provide: TodoService, useValue: todoServiceStub }]
+      providers: [
+        { provide: Store, useValue: {} },
+        { provide: TodoService, useValue: todoServiceStub }
+        ]
     })
     .compileComponents();
   }));
