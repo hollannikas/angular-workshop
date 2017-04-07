@@ -5,7 +5,7 @@ import { Actions, Effect } from '@ngrx/effects';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/Observable/of';
+import 'rxjs/add/observable/of';
 
 import { TodoService } from '../shared/todo.service';
 
