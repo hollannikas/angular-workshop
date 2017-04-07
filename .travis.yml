@@ -26,8 +26,9 @@ before_script:
   - npm install -g @angular/cli
 
 script:
+  - ng lint
   - ng test --watch false
-  #- ng e2e
+  - ng e2e
 
 notifications:
   email:
