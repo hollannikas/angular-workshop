@@ -2,16 +2,15 @@
 
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/Observable/of';
+
 import { TodoService } from '../shared/todo.service';
 
 @Injectable()
 export class TodoEffects {
-
-  constructor(
-    private actions$: Actions,
-    private service: TodoService
-  ) {}
 
 
   @Effect({dispatch: false}) log$ = this.actions$
@@ -38,4 +37,9 @@ export class TodoEffects {
       .map(() => ({type: 'LOAD'}))
       .catch(() => Observable.of({type: 'ACTION_ERROR'}))
     );
+
+  constructor(
+    private actions$: Actions,
+    private service: TodoService
+  ) {}
 }
