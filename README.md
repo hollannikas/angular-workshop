@@ -1,5 +1,6 @@
 # AngularWorkshop
 [![Build Status](https://travis-ci.org/hollannikas/angular-workshop.svg?branch=master)](https://travis-ci.org/hollannikas/angular-workshop)
+[![Coverage Status](https://coveralls.io/repos/github/hollannikas/angular-workshop/badge.svg?branch=master)](https://coveralls.io/github/hollannikas/angular-workshop?branch=master)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 

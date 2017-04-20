@@ -31,8 +31,11 @@ before_script:
 
 script:
   - ng lint
-  - ng test --watch false
+  - ng test --watch false --cc
   - ng e2e
+
+after_success:
+  - npm run coveralls
 
 notifications:
   email:
